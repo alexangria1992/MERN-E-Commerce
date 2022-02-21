@@ -1,23 +1,14 @@
 import express from "express";
-import products from "./data/Products.js";
 import dotenv from "dotenv";
 import connectDatabase from "./config/MongoDb.js";
+import ImportData from "./DataImport.js";
 
 dotenv.config();
 connectDatabase();
 const app = express();
 
-//LOAD PRODUCT FROM SERVER
-
-app.get("/api/products", (req, res) => {
-  res.json(products);
-});
-
-//SINGLE PRODUCT FROM SERVER
-app.get("/api/products/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
-  res.json(product);
-});
+//API
+app.use("/api/import", ImportData);
 
 app.get("/", (req, res) => {
   res.send("API is running");

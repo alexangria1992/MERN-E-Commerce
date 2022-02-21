@@ -61,8 +61,6 @@ const productSchema = mongoose.Schema(
   }
 );
 
-const User = mongoose.model("User", userSchema);
+const Product = mongoose.model("Product", productSchema);
 
-const Product = mongoose.model("Product", userSchema);
-
-export default User;
+export default Product;
