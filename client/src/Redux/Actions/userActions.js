@@ -3,6 +3,7 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
 } from "../Constants/UserConstants";
+import axios from "axios";
 
 //LOGIN
 export const login = (email, password) => async (dispatch) => {
